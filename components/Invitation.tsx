@@ -1,13 +1,13 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { eventDate, formatLongDate, formatWeekday, googleMapsLink, invite, wazeLink } from "@/lib/invite";
+import { couple, eventDate, formatLongDate, formatWeekday, googleMapsLink, invite, wazeLink } from "@/lib/invite";
 import { Music } from "@/lib/music";
 import { GarlandArt } from "./art/Stage";
 import Countdown from "./Countdown";
 import Gallery from "./Gallery";
 import Hero from "./Hero";
-import ScratchCard from "./ScratchCard";
+import RevealCard from "./RevealCard";
 
 function FloralDivider({ seed }: { seed: number }) {
   return (
@@ -32,7 +32,7 @@ function Heading({ eyebrow, title, id }: { eyebrow: string; title: string; id?: 
 function Names() {
   return (
     <>
-      {invite.bride.first} <span>&amp;</span> {invite.groom.first}
+      {couple[0].first} <span>&amp;</span> {couple[1].first}
     </>
   );
 }
@@ -123,14 +123,14 @@ export default function Invitation() {
 
       <section id="date" className="scratch-section section-pad">
         <div className="section-shell">
-          <Heading eyebrow={invite.scratch.eyebrow} title={invite.scratch.title} />
+          <Heading eyebrow={invite.reveal.eyebrow} title={invite.reveal.title} />
           <div className="scratch-frame-shell reveal">
-            <ScratchCard
-              kicker={invite.scratch.kicker}
+            <RevealCard
+              kicker={invite.reveal.kicker}
               date={longDate}
               weekday={formatWeekday(eventDate)}
               time={invite.timeLabel}
-              blessing={invite.scratch.blessing}
+              blessing={invite.reveal.blessing}
               onReveal={onReveal}
             />
             <span className="frame-corner tl" />
@@ -138,7 +138,7 @@ export default function Invitation() {
             <span className="frame-corner bl" />
             <span className="frame-corner br" />
           </div>
-          <p className="scratch-note reveal">{invite.scratch.note}</p>
+          <p className="scratch-note reveal">{invite.reveal.note}</p>
         </div>
       </section>
 

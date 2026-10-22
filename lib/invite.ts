@@ -45,12 +45,12 @@ export const invite = {
     body: "With hearts full of gratitude, we warmly invite you to join us as we celebrate the engagement of our beloved children — a promise made with love, blessed by family, and sealed with a ring.",
   },
 
-  scratch: {
+  reveal: {
     eyebrow: "A date to hold close",
-    title: "Scratch to Reveal",
+    title: "Tap to Reveal",
     kicker: "You’re Invited!",
     blessing: "InshaAllah",
-    note: "Use your finger or cursor to uncover the moment.",
+    note: "Tap the golden card to uncover the moment.",
   },
 
   // Put photos in /public/gallery and list them here. Section hides when empty.
@@ -99,6 +99,10 @@ export const invite = {
 };
 
 export const eventDate = new Date(invite.dateTime);
+
+/** Order the names appear in, everywhere on the invitation. */
+export const couple = [invite.groom, invite.bride];
+export const coupleFirstNames = couple.map((p) => p.first).join(" & ");
 
 export function formatLongDate(d: Date) {
   return d.toLocaleDateString("en-US", { month: "long", day: "numeric", year: "numeric", timeZone: invite.timeZone });

@@ -2,7 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { Allura, Cormorant_Infant, DM_Sans } from "next/font/google";
 import Defs from "@/components/art/Defs";
 import { VelvetDefs } from "@/components/art/Stage";
-import { invite } from "@/lib/invite";
+import { couple, coupleFirstNames, invite } from "@/lib/invite";
 import "./globals.css";
 
 const script = Allura({ weight: "400", subsets: ["latin"], variable: "--font-script", display: "swap" });
@@ -15,13 +15,13 @@ const display = Cormorant_Infant({
 });
 const body = DM_Sans({ subsets: ["latin"], variable: "--font-body", display: "swap" });
 
-const couple = `${invite.bride.first} & ${invite.groom.first}`;
+const names = coupleFirstNames;
 
 export const metadata: Metadata = {
-  title: `${couple} — ${invite.occasion} Invitation`,
-  description: `You are warmly invited to the ${invite.occasion.toLowerCase()} of ${invite.bride.first} ${invite.bride.last} & ${invite.groom.first} ${invite.groom.last}.`,
+  title: `${names} — ${invite.occasion} Invitation`,
+  description: `You are warmly invited to the ${invite.occasion.toLowerCase()} of ${couple.map((p) => `${p.first} ${p.last}`).join(" & ")}.`,
   openGraph: {
-    title: `${couple} — ${invite.occasion} Invitation`,
+    title: `${names} — ${invite.occasion} Invitation`,
     description: "Tap to open your invitation.",
   },
 };

@@ -11,9 +11,9 @@ export default function Bismillah({ className }: { className?: string }) {
     <svg className={className} viewBox="-40 -40 4523 2108" role="img" aria-label="Bismillah ir-Rahman ir-Rahim">
       <defs>
         <linearGradient id="bismFill" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#fff7e6" />
-          <stop offset=".55" stopColor="#f6e6c8" />
-          <stop offset="1" stopColor="#e2c27e" />
+          <stop offset="0" stopColor="#fffbf2" />
+          <stop offset=".6" stopColor="#fbf0da" />
+          <stop offset="1" stopColor="#f0d7a0" />
         </linearGradient>
       </defs>
       <path d={D} fill="url(#bismFill)" />

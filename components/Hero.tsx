@@ -1,13 +1,13 @@
 "use client";
 
 import { motion, useReducedMotion } from "motion/react";
-import { useEffect, useState } from "react";
+import { Fragment, useEffect, useState } from "react";
 import Bismillah from "./art/Bismillah";
 import Chandelier from "./art/Chandelier";
 import { CornerBouquet } from "./art/Florals";
 import { Candelabra, Drape, Flourish, GoldScroll, Tassel, Valance } from "./art/Stage";
 import GoldDust from "./GoldDust";
-import { invite } from "@/lib/invite";
+import { couple, invite } from "@/lib/invite";
 
 export type HeroPhase = "closed" | "opening" | "open";
 
@@ -32,8 +32,6 @@ export default function Hero({ onOpen }: { onOpen: () => void }) {
     window.setTimeout(() => setLit(true), 900 * k);
     window.setTimeout(() => setPhase("open"), 3900 * k);
   };
-
-  const { bride, groom } = invite;
 
   return (
     <section
@@ -139,31 +137,23 @@ export default function Hero({ onOpen }: { onOpen: () => void }) {
         </div>
         <p className="hero-welcome">{invite.welcomeLine}</p>
         <div className="couple-names">
-          <div>
-            <h1>
-              <span>{bride.first}</span> {bride.last}
-            </h1>
-            {bride.parents && (
-              <>
-                <p>{bride.relation}</p>
-                <small>{bride.parents}</small>
-              </>
-            )}
-            {bride.grandparents && <small className="families__grandparents">{bride.grandparents}</small>}
-          </div>
-          <span className="name-ampersand">&amp;</span>
-          <div>
-            <h1>
-              <span>{groom.first}</span> {groom.last}
-            </h1>
-            {groom.parents && (
-              <>
-                <p>{groom.relation}</p>
-                <small>{groom.parents}</small>
-              </>
-            )}
-            {groom.grandparents && <small className="families__grandparents">{groom.grandparents}</small>}
-          </div>
+          {couple.map((p, i) => (
+            <Fragment key={p.first}>
+              {i > 0 && <span className="name-ampersand">&amp;</span>}
+              <div>
+                <h1>
+                  <span>{p.first}</span> {p.last}
+                </h1>
+                {p.parents && (
+                  <>
+                    <p>{p.relation}</p>
+                    <small>{p.parents}</small>
+                  </>
+                )}
+                {p.grandparents && <small className="families__grandparents">{p.grandparents}</small>}
+              </div>
+            </Fragment>
+          ))}
         </div>
         <p className="hero-closing">{invite.closingLine}</p>
         <a className="scroll-cue" href="#welcome" onClick={(e) => e.stopPropagation()}>
