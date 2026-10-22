@@ -1,36 +1,34 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Sabeen & Luqman — Engagement Invitation
 
-## Getting Started
+A tap-to-open digital invitation built with Next.js 16 + Motion.
 
-First, run the development server:
+## Run
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm install
+npm run dev        # http://localhost:3000
+npm run build      # static production build
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Editing the details
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+Everything guests read lives in **`lib/invite.ts`**: names, parents, date & time,
+venue + Google Maps link, programme, dress code, closing line.
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Gallery** — drop photos in `public/gallery/` and list them in `gallery`
+  (e.g. `{ src: "/gallery/01.jpg", caption: "Where it began" }`). Hidden while empty.
+- **Other functions** (Mehndi, Nikah…) — add to `events`. Hidden while empty.
+- **Music** — by default a soft harp/bell score is synthesised in the browser.
+  To use your own song, put an mp3 in `public/audio/` and set `music: "/audio/your-song.mp3"`.
 
-## Learn More
+## What's where
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+| Path | |
+| --- | --- |
+| `components/Hero.tsx` | Closed curtains → tap → curtains part, chandelier lowers, candles light, text reveals |
+| `components/art/*` | All artwork as hand-built SVG (chandelier, roses, drapes, valance, gilded scrolls) |
+| `components/art/Bismillah.tsx` | ﷽ outline from Noto Nastaliq Urdu (SIL OFL 1.1) — identical on every phone |
+| `components/ScratchCard.tsx` | Gold-foil scratch-to-reveal date + rose petal shower |
+| `lib/music.ts` | Web Audio score + opening chime |
+| `app/globals.css` | All styling |
+# luqman-and-sabeen
