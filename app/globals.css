@@ -1180,6 +1180,13 @@ a,
   font-size: 0.96rem;
 }
 
+.date-blessing {
+  font-family: var(--font-display), serif;
+  font-size: 1.05rem;
+  font-style: italic;
+  color: var(--mauve);
+}
+
 .date-day i {
   font-style: normal;
   color: var(--champagne);
@@ -1579,6 +1586,8 @@ a,
 }
 
 .venue-card p {
+  white-space: pre-line;
+  line-height: 1.6;
   position: relative;
   z-index: 1;
   max-width: 520px;
@@ -1608,6 +1617,33 @@ a,
     background 0.25s,
     color 0.25s,
     transform 0.25s;
+}
+
+.venue-actions {
+  position: relative;
+  z-index: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(124px, 1fr));
+  gap: 10px;
+  max-width: 340px;
+  margin: 0 auto;
+}
+
+.venue-actions .venue-map-button {
+  gap: 7px;
+  padding: 12px 8px;
+  letter-spacing: 0.12em;
+  white-space: nowrap;
+}
+
+.venue-map-button svg {
+  flex: none;
+  width: 15px;
+  height: 15px;
+  fill: none;
+  stroke: currentColor;
+  stroke-width: 1.6;
+  stroke-linejoin: round;
 }
 
 .venue-map-button:hover {

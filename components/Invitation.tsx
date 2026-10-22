@@ -1,7 +1,7 @@
 "use client";
 
 import { useCallback, useEffect, useRef, useState } from "react";
-import { eventDate, formatLongDate, formatWeekday, invite } from "@/lib/invite";
+import { eventDate, formatLongDate, formatWeekday, googleMapsLink, invite, wazeLink } from "@/lib/invite";
 import { Music } from "@/lib/music";
 import { GarlandArt } from "./art/Stage";
 import Countdown from "./Countdown";
@@ -130,6 +130,7 @@ export default function Invitation() {
               date={longDate}
               weekday={formatWeekday(eventDate)}
               time={invite.timeLabel}
+              blessing={invite.scratch.blessing}
               onReveal={onReveal}
             />
             <span className="frame-corner tl" />
@@ -192,9 +193,21 @@ export default function Invitation() {
             </div>
             <h2>{invite.venue.name}</h2>
             <p>{invite.venue.address}</p>
-            <a className="venue-map-button" href={invite.venue.mapUrl} target="_blank" rel="noreferrer">
-              View on Google Maps
-            </a>
+            <div className="venue-actions">
+              <a className="venue-map-button" href={googleMapsLink(invite.venue)} target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden>
+                  <path d="M12 21s-7-6.3-7-11.5A7 7 0 0 1 19 9.5C19 14.7 12 21 12 21Z" />
+                  <circle cx="12" cy="9.5" r="2.5" />
+                </svg>
+                Google Maps
+              </a>
+              <a className="venue-map-button" href={wazeLink(invite.venue)} target="_blank" rel="noreferrer">
+                <svg viewBox="0 0 24 24" aria-hidden>
+                  <path d="M3 11.5 21 3l-8.5 18-2-7.5Z" />
+                </svg>
+                Waze
+              </a>
+            </div>
           </div>
         </div>
       </section>

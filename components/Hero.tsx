@@ -143,8 +143,12 @@ export default function Hero({ onOpen }: { onOpen: () => void }) {
             <h1>
               <span>{bride.first}</span> {bride.last}
             </h1>
-            <p>{bride.relation}</p>
-            <small>{bride.parents}</small>
+            {bride.parents && (
+              <>
+                <p>{bride.relation}</p>
+                <small>{bride.parents}</small>
+              </>
+            )}
             {bride.grandparents && <small className="families__grandparents">{bride.grandparents}</small>}
           </div>
           <span className="name-ampersand">&amp;</span>
@@ -152,8 +156,12 @@ export default function Hero({ onOpen }: { onOpen: () => void }) {
             <h1>
               <span>{groom.first}</span> {groom.last}
             </h1>
-            <p>{groom.relation}</p>
-            <small>{groom.parents}</small>
+            {groom.parents && (
+              <>
+                <p>{groom.relation}</p>
+                <small>{groom.parents}</small>
+              </>
+            )}
             {groom.grandparents && <small className="families__grandparents">{groom.grandparents}</small>}
           </div>
         </div>

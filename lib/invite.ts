@@ -25,20 +25,20 @@ export const invite = {
     first: "Sabeen",
     last: "Khan",
     relation: "Daughter of",
-    parents: "Mr. & Mrs. Khan",
+    parents: "", // e.g. "Mr. & Mrs. Khan" — the line is hidden while empty
   } as Person,
 
   groom: {
     first: "Luqman",
-    last: "Ahmed Adil",
+    last: "Ahmad Adeel",
     relation: "Son of",
-    parents: "Mr. & Mrs. Adil",
+    parents: "",
   } as Person,
 
-  // ISO date with your timezone offset (Pakistan +05:00, India +05:30)
-  dateTime: "2026-12-20T19:00:00+05:00",
-  timeZone: "Asia/Karachi",
-  timeLabel: "07:00 PM",
+  // ISO date with the venue's timezone offset (Malaysia +08:00)
+  dateTime: "2026-11-25T18:00:00+08:00",
+  timeZone: "Asia/Kuala_Lumpur",
+  timeLabel: "6:00 PM",
 
   welcome: {
     title: "A Blessed Beginning",
@@ -49,29 +49,31 @@ export const invite = {
     eyebrow: "A date to hold close",
     title: "Scratch to Reveal",
     kicker: "You’re Invited!",
+    blessing: "InshaAllah",
     note: "Use your finger or cursor to uncover the moment.",
   },
 
   // Put photos in /public/gallery and list them here. Section hides when empty.
   gallery: [] as GalleryItem[],
 
-  countdown: { eyebrow: "Until the rings are exchanged", title: "Counting every heartbeat" },
+  countdown: { eyebrow: "Until the big day, InshaAllah", title: "Counting every heartbeat" },
 
   program: {
     eyebrow: "The celebration",
     title: "Our Engagement day",
     items: [
-      { time: "6:30 PM", title: "Guest Arrival", note: "Welcome & refreshments" },
-      { time: "07:00 PM", title: "Ring Ceremony", note: "Exchange of rings & duas" },
-      { time: "07:30 PM", title: "Blessings", note: "Family greetings & photographs" },
-      { time: "08:00 PM", title: "Dinner", note: "A feast shared with love" },
+      { time: "6:00 PM", title: "Engagement Ceremony", note: "Exchange of rings & duas" },
+      { time: "7:00 PM", title: "Dinner", note: "A feast shared with love" },
     ] as ProgramItem[],
   },
 
   venue: {
-    name: "The Grand Ballroom",
-    address: "Venue address, City",
-    mapUrl: "https://maps.google.com/?q=The+Grand+Ballroom",
+    name: "Lakepark Residence",
+    address: "Residensi Utara 1\n68100 Selayang, Selangor, Malaysia",
+    // What Google Maps and Waze search for. Paste exact links below to override.
+    mapQuery: "Lakepark Residence, Residensi Utara 1, 68100 Selayang, Selangor, Malaysia",
+    googleMapsUrl: "",
+    wazeUrl: "",
   },
 
   dress: {
@@ -104,3 +106,9 @@ export function formatLongDate(d: Date) {
 export function formatWeekday(d: Date) {
   return d.toLocaleDateString("en-US", { weekday: "long", timeZone: invite.timeZone });
 }
+
+export const googleMapsLink = (v: { mapQuery: string; googleMapsUrl?: string }) =>
+  v.googleMapsUrl || `https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(v.mapQuery)}`;
+
+export const wazeLink = (v: { mapQuery: string; wazeUrl?: string }) =>
+  v.wazeUrl || `https://waze.com/ul?q=${encodeURIComponent(v.mapQuery)}&navigate=yes`;

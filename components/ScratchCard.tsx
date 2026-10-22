@@ -54,12 +54,14 @@ export default function ScratchCard({
   date,
   weekday,
   time,
+  blessing,
   onReveal,
 }: {
   kicker: string;
   date: string;
   weekday: string;
   time: string;
+  blessing?: string;
   onReveal?: () => void;
 }) {
   const wrapRef = useRef<HTMLDivElement>(null);
@@ -176,6 +178,7 @@ export default function ScratchCard({
           <i>⬩</i>
           <span>{time}</span>
         </div>
+        {blessing && <em className="date-blessing">{blessing}</em>}
       </div>
       <canvas
         ref={canvasRef}
