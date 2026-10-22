@@ -31,26 +31,26 @@ export default function Defs() {
         </radialGradient>
 
         <radialGradient id="rosePetal" cx=".5" cy="1" r="1.05">
-          <stop offset="0" stopColor="#2a0205" />
-          <stop offset=".45" stopColor="#7d0b17" />
-          <stop offset=".8" stopColor="#b51a28" />
-          <stop offset="1" stopColor="#d9404a" />
+          <stop offset="0" stopColor="#8a2f55" />
+          <stop offset=".45" stopColor="#d0638a" />
+          <stop offset=".8" stopColor="#f09ab5" />
+          <stop offset="1" stopColor="#ffc9d8" />
         </radialGradient>
         <radialGradient id="rosePetalDeep" cx=".5" cy="1" r="1.05">
-          <stop offset="0" stopColor="#1c0103" />
-          <stop offset=".5" stopColor="#5e0711" />
-          <stop offset=".85" stopColor="#951423" />
-          <stop offset="1" stopColor="#c3303c" />
+          <stop offset="0" stopColor="#6a2142" />
+          <stop offset=".5" stopColor="#b04a72" />
+          <stop offset=".85" stopColor="#de7fa0" />
+          <stop offset="1" stopColor="#f6b3c8" />
         </radialGradient>
         <radialGradient id="rosePetalBlush" cx=".5" cy="1" r="1.05">
-          <stop offset="0" stopColor="#7a2a22" />
-          <stop offset=".5" stopColor="#c45a4a" />
-          <stop offset=".85" stopColor="#e88b72" />
-          <stop offset="1" stopColor="#f6b9a0" />
+          <stop offset="0" stopColor="#c98a9a" />
+          <stop offset=".5" stopColor="#f2c4cf" />
+          <stop offset=".85" stopColor="#fde0e7" />
+          <stop offset="1" stopColor="#fff4f7" />
         </radialGradient>
         <radialGradient id="roseCore" cx=".5" cy=".5" r=".5">
-          <stop offset="0" stopColor="#120002" />
-          <stop offset="1" stopColor="#5a0610" />
+          <stop offset="0" stopColor="#5a1a36" />
+          <stop offset="1" stopColor="#9a3a62" />
         </radialGradient>
 
         <linearGradient id="leaf" x1="0" y1="1" x2="0" y2="0">

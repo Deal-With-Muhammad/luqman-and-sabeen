@@ -79,7 +79,7 @@ export const invite = {
   dress: {
     title: "Festive Formal",
     body: "Traditional or formal attire is encouraged — sarees, lehengas, anarkalis, sherwanis and kurtas in rich jewel tones would be perfect for the evening.",
-    palette: ["#3a070c", "#6f0b17", "#a51520", "#c9a35f", "#f1e3ce"],
+    palette: ["#5a2238", "#c4587d", "#e68fab", "#c9a35f", "#fde0e7"],
   },
 
   // Other functions (Mehndi, Nikah…). Section hides when empty.

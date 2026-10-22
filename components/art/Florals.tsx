@@ -39,7 +39,7 @@ export function Rose({ x, y, r, seed = 1, tone = "red", tilt = 0 }: { x: number;
   const squash = 1 - Math.abs(tilt) * 0.35;
   return (
     <g transform={`translate(${x} ${y}) rotate(${tilt * 40}) scale(1 ${squash})`}>
-      <circle r={r * 0.98} fill="#1a0003" opacity=".55" />
+      <circle r={r * 0.98} fill="#5a1a36" opacity=".55" />
       {rings.map((ring, ri) => {
         const off = rand() * 360;
         return Array.from({ length: ring.n }, (_, i) => {
@@ -51,7 +51,7 @@ export function Rose({ x, y, r, seed = 1, tone = "red", tilt = 0 }: { x: number;
               d={petalPath(r * ring.rIn, r * ring.rOut * k, r * ring.w)}
               transform={`rotate(${f(a)})`}
               fill={fill}
-              stroke={tone === "blush" ? "rgba(255,215,190,.35)" : "rgba(255,120,120,.22)"}
+              stroke={tone === "blush" ? "rgba(255,215,190,.35)" : "rgba(255,225,235,.4)"}
               strokeWidth={r * 0.025}
             />
           );
@@ -63,7 +63,7 @@ export function Rose({ x, y, r, seed = 1, tone = "red", tilt = 0 }: { x: number;
           key={i}
           d={`M ${f(-r * 0.16)} 0 A ${f(r * (0.16 - i * 0.04))} ${f(r * (0.16 - i * 0.04))} 0 1 1 ${f(r * (0.1 - i * 0.03))} ${f(r * 0.08)}`}
           fill="none"
-          stroke={tone === "blush" ? "rgba(255,210,190,.55)" : "rgba(220,70,80,.6)"}
+          stroke={tone === "blush" ? "rgba(255,210,190,.55)" : "rgba(140,40,80,.45)"}
           strokeWidth={r * 0.035}
           transform={`rotate(${f(i * 120 + rand() * 30)})`}
         />

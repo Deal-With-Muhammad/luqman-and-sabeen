@@ -7,23 +7,23 @@ const WIPE_MS = 1100;
 
 function paintFoil(ctx: CanvasRenderingContext2D, w: number, h: number, fonts: { display: string; body: string }) {
   const g = ctx.createLinearGradient(0, 0, w, h);
-  g.addColorStop(0, "#8a6222");
-  g.addColorStop(0.25, "#e9c879");
-  g.addColorStop(0.45, "#b8893b");
-  g.addColorStop(0.6, "#f7e2a4");
-  g.addColorStop(0.8, "#a67a2c");
-  g.addColorStop(1, "#d8b467");
+  g.addColorStop(0, "#8a5a4c");
+  g.addColorStop(0.25, "#e9b9a6");
+  g.addColorStop(0.45, "#b97f6c");
+  g.addColorStop(0.6, "#f7d9cc");
+  g.addColorStop(0.8, "#a86e5e");
+  g.addColorStop(1, "#d8a594");
   ctx.fillStyle = g;
   ctx.fillRect(0, 0, w, h);
 
   // brushed-metal grain
   for (let i = 0; i < w * h * 0.012; i++) {
-    ctx.fillStyle = Math.random() > 0.5 ? "rgba(255,248,220,.35)" : "rgba(90,58,10,.22)";
+    ctx.fillStyle = Math.random() > 0.5 ? "rgba(255,248,220,.35)" : "rgba(110,60,50,.2)";
     ctx.fillRect(Math.random() * w, Math.random() * h, Math.random() * 6 + 1, 0.7);
   }
 
   // inset border
-  ctx.strokeStyle = "rgba(58,7,12,.35)";
+  ctx.strokeStyle = "rgba(90, 34, 56,.35)";
   ctx.lineWidth = 1;
   ctx.strokeRect(12.5, 12.5, w - 25, h - 25);
   ctx.strokeStyle = "rgba(255,245,215,.5)";
@@ -31,7 +31,7 @@ function paintFoil(ctx: CanvasRenderingContext2D, w: number, h: number, fonts: {
 
   // label
   const s = Math.min(w, h);
-  ctx.fillStyle = "rgba(58,7,12,.82)";
+  ctx.fillStyle = "rgba(90, 34, 56,.82)";
   ctx.textAlign = "center";
   ctx.textBaseline = "middle";
   ctx.font = `italic 400 ${Math.round(s * 0.17)}px ${fonts.display}`;

@@ -4,7 +4,7 @@ export function showerPetals(count = 38) {
   if (window.matchMedia("(prefers-reduced-motion: reduce)").matches) return;
   const layer = document.createElement("div");
   layer.className = "petal-shower";
-  const tones = ["#a51520", "#c22a35", "#6f0b17", "#e07a7a", "#c9a35f"];
+  const tones = ["#c4587d", "#e68fab", "#8c3a5a", "#f4b6c8", "#c9a35f"];
   let longest = 0;
   for (let i = 0; i < count; i++) {
     const p = document.createElement("i");

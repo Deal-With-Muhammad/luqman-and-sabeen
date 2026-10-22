@@ -10,13 +10,13 @@ function foldStops(folds: number, seed: number) {
     const base = i / folds;
     const w = 1 / folds;
     const j = (r() - 0.5) * w * 0.3;
-    stops.push({ o: base, c: "#220205" });
-    stops.push({ o: base + w * 0.3 + j, c: "#6a0913" });
-    stops.push({ o: base + w * 0.52 + j, c: r() > 0.5 ? "#b9222f" : "#a11a26" });
-    stops.push({ o: base + w * 0.62 + j, c: "#7a0c17" });
-    stops.push({ o: base + w * 0.92, c: "#2c0307" });
+    stops.push({ o: base, c: "#7a2b44" });
+    stops.push({ o: base + w * 0.3 + j, c: "#b85c77" });
+    stops.push({ o: base + w * 0.52 + j, c: r() > 0.5 ? "#f5b8c7" : "#eb9fb3" });
+    stops.push({ o: base + w * 0.62 + j, c: "#c9718b" });
+    stops.push({ o: base + w * 0.92, c: "#86324c" });
   }
-  stops.push({ o: 1, c: "#220205" });
+  stops.push({ o: 1, c: "#7a2b44" });
   return stops.map((st, i) => <stop key={i} offset={f(Math.min(1, Math.max(0, st.o)))} stopColor={st.c} />);
 }
 
@@ -27,17 +27,17 @@ export function VelvetDefs() {
         <linearGradient id="velvetDrape" x1="0" y1="0" x2="1" y2="0">{foldStops(6, 11)}</linearGradient>
         <linearGradient id="velvetSwag" x1="0" y1="0" x2="1" y2="0">{foldStops(9, 23)}</linearGradient>
         <linearGradient id="velvetShade" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#000" stopOpacity=".55" />
-          <stop offset=".18" stopColor="#000" stopOpacity="0" />
-          <stop offset=".55" stopColor="#ff6a5a" stopOpacity=".08" />
-          <stop offset=".8" stopColor="#000" stopOpacity=".1" />
-          <stop offset="1" stopColor="#000" stopOpacity=".6" />
+          <stop offset="0" stopColor="#5f1630" stopOpacity=".55" />
+          <stop offset=".18" stopColor="#5f1630" stopOpacity="0" />
+          <stop offset=".55" stopColor="#ffd0dc" stopOpacity=".08" />
+          <stop offset=".8" stopColor="#5f1630" stopOpacity=".1" />
+          <stop offset="1" stopColor="#5f1630" stopOpacity=".6" />
         </linearGradient>
         <linearGradient id="swagSheen" x1="0" y1="0" x2="0" y2="1">
-          <stop offset="0" stopColor="#3a0309" />
-          <stop offset=".45" stopColor="#9d1824" />
-          <stop offset=".7" stopColor="#c9303b" />
-          <stop offset="1" stopColor="#4c050c" />
+          <stop offset="0" stopColor="#86324c" />
+          <stop offset=".45" stopColor="#d6849c" />
+          <stop offset=".7" stopColor="#f5b8c7" />
+          <stop offset="1" stopColor="#8f3a55" />
         </linearGradient>
       </defs>
     </svg>
@@ -51,7 +51,7 @@ export function Drape({ className }: { className?: string }) {
     <svg className={className} viewBox="0 0 128 800" preserveAspectRatio="none" aria-hidden>
       <path d={shape} fill="url(#velvetDrape)" />
       <path d={shape} fill="url(#velvetShade)" />
-      <path d="M128 0 C 118 180 52 360 42 470 C 40 500 78 640 118 800" fill="none" stroke="rgba(255,150,140,.28)" strokeWidth="1.2" vectorEffect="non-scaling-stroke" />
+      <path d="M128 0 C 118 180 52 360 42 470 C 40 500 78 640 118 800" fill="none" stroke="rgba(255,220,230,.28)" strokeWidth="1.2" vectorEffect="non-scaling-stroke" />
       <path d="M126 0 C 116 180 50 360 40 470 C 38 500 76 640 116 800" fill="none" stroke="url(#goldV)" strokeWidth="2.4" vectorEffect="non-scaling-stroke" opacity=".85" />
     </svg>
   );
@@ -86,10 +86,10 @@ function Swag({ x0, x1, depth }: { x0: number; x1: number; depth: number }) {
     <g>
       <path d={`M${x0} ${top} Q ${mid} ${top + depth * 2} ${x1} ${top} Q ${mid} ${top + depth * 0.9} ${x0} ${top} Z`} fill="url(#swagSheen)" />
       {[0.35, 0.6, 0.82].map((k) => (
-        <path key={k} d={`M${x0 + 4} ${top} Q ${mid} ${f(top + depth * 2 * k + depth * 0.3)} ${x1 - 4} ${top}`} fill="none" stroke="rgba(30,0,4,.45)" strokeWidth="1.4" />
+        <path key={k} d={`M${x0 + 4} ${top} Q ${mid} ${f(top + depth * 2 * k + depth * 0.3)} ${x1 - 4} ${top}`} fill="none" stroke="rgba(70, 18, 40,.45)" strokeWidth="1.4" />
       ))}
       {[0.48, 0.72].map((k) => (
-        <path key={k} d={`M${x0 + 6} ${top} Q ${mid} ${f(top + depth * 2 * k + depth * 0.2)} ${x1 - 6} ${top}`} fill="none" stroke="rgba(255,140,130,.25)" strokeWidth="1" />
+        <path key={k} d={`M${x0 + 6} ${top} Q ${mid} ${f(top + depth * 2 * k + depth * 0.2)} ${x1 - 6} ${top}`} fill="none" stroke="rgba(255,220,230,.25)" strokeWidth="1" />
       ))}
       <path d={`M${x0} ${top} Q ${mid} ${top + depth * 2} ${x1} ${top}`} fill="none" stroke="url(#goldH)" strokeWidth="2.2" />
       {fringe.map(([x, y], i) => (
